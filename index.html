@@ -12,6 +12,7 @@
             --light-bg: #f5f7fa;
             --white: #ffffff;
             --text-dark: #333333;
+            --success: #2e7d32;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; }
         body { color: var(--text-dark); background-color: var(--white); line-height: 1.6; }
@@ -38,12 +39,16 @@
         .counter-badge span { color: var(--accent); }
         .form-group { margin-bottom: 20px; text-align: left; max-width: 500px; margin-left: auto; margin-right: auto; }
         .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--primary); }
-        .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 16px; background: var(--white); }
+        .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 16px; background: var(--white); color: var(--text-dark); }
         .btn { background: var(--primary); color: white; border: none; padding: 14px 40px; font-size: 16px; font-weight: bold; border-radius: 6px; cursor: pointer; transition: all 0.3s; display: inline-block; text-decoration: none; margin-top: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         .btn:hover { background: var(--accent); color: var(--primary); transform: translateY(-2px); }
+        .btn:disabled { background: #cccccc; color: #666666; cursor: not-allowed; transform: none; }
+        .status-msg { margin-top: 15px; font-weight: bold; font-size: 16px; display: none; }
+        .status-success { color: var(--success); }
+        .status-error { color: #d32f2f; }
         .directory-box { margin-top: 40px; overflow-x: auto; }
         table { width: 100%; border-collapse: collapse; background: white; margin-top: 15px; min-width: 500px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #e2e8f0; color: var(--text-dark); }
         th { background-color: var(--primary); color: white; }
         .social-links { display: flex; justify-content: center; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
         .social-tag { background: #e2e8f0; padding: 6px 12px; border-radius: 20px; text-decoration: none; color: var(--primary); font-weight: 600; font-size: 13px; transition: all 0.3s; }
@@ -112,7 +117,7 @@
         <div class="portal-container">
             <div class="counter-badge">Database Registry: <span id="memberCount">0</span> / 500 Members</div>
             
-            <form id="memberForm" action="https://formspree.io" method="POST">
+            <form id="memberForm">
                 <div class="form-group">
                     <label for="memberName">Full Name</label>
                     <input type="text" id="memberName" name="Full Name" placeholder="Enter full name" required>
@@ -127,74 +132,3 @@
                         <option value="">-- Select Department --</option>
                         <option value="Men Ministry">Men Ministry</option>
                         <option value="Women Ministry">Women Ministry</option>
-                        <option value="Youth Ministry">Youth Ministry</option>
-                        <option value="Media Ministry">Media Ministry</option>
-                        <option value="Cleaning Ministry">Cleaning Ministry</option>
-                        <option value="Disciples">Disciples / General Member</option>
-            </select>
-        </div>
-        <button type="submit" class="btn">Register Profile Details</button>
-    </form>
-
-    <div class="directory-box">
-        <h3 style="color: var(--primary); text-align: left; margin-bottom: 10px;">Local Administrator Log</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Contact Info</th>
-                    <th>Department</th>
-                </tr>
-            </thead>
-            <tbody id="directoryBody"></tbody>
-        </table>
-    </div>
-</div>
-</section>
-    <footer>
-        <p>&copy; 2026 End Time Chapel - Assemblies of God, Ghana | Berekum, Domfete</p>
-        <p style="margin-top: 10px; color: var(--accent);">Contact Admin: 0248578656 (Call & WhatsApp)</p>
-    </footer>
-
-   
-    <script>
-        const form = document.getElementById('memberForm');
-        const countDisplay = document.getElementById('memberCount');
-        const directoryBody = document.getElementById('directoryBody');
-
-        function loadLocalData() {
-            let records = JSON.parse(localStorage.getItem('etc_members')) || [];
-            countDisplay.innerText = records.length;
-            directoryBody.innerHTML = '';
-            records.forEach(m => {
-                let row = document.createElement('tr');
-                row.innerHTML = `<td>${m.name}</td><td>${m.phone}</td><td>${m.dept}</td>`;
-                directoryBody.appendChild(row);
-            });
-        }
-
-        form.addEventListener('submit', function(e) {
-            let records = JSON.parse(localStorage.getItem('etc_members')) || [];
-            
-            if (records.length >= 500) {
-                e.preventDefault();
-                alert('Database directory reached its limit capacity of 500 records.');
-                return;
-            }
-
-            const nameVal = document.getElementById('memberName').value;
-            const phoneVal = document.getElementById('memberPhone').value;
-            const deptVal = document.getElementById('memberDept').value;
-
-            // Save to local screen log securely
-            records.push({ name: nameVal, phone: phoneVal, dept: deptVal });
-            localStorage.setItem('etc_members', JSON.stringify(records));
-            
-            // Allow the form to successfully POST data out to Formspree now
-        });
-
-        window.onload = loadLocalData;
-    </script>
-</body>
-</html>
-
