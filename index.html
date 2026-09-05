@@ -34,12 +34,18 @@
         .family-card { background: var(--light-bg); border-radius: 12px; padding: 30px; text-align: center; width: 100%; max-width: 500px; border: 1px solid #e0e0e0; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
         .family-card h3 { color: var(--primary); margin-bottom: 5px; font-size: 1.4rem; }
         .family-subtitle { color: #666; font-style: italic; margin-bottom: 15px; }
-        .portal-container { background: var(--light-bg); border-radius: 12px; padding: 40px 20px; border: 1px solid #e2e8f0; margin-top: 20px; }
+        
+        /* Fixed layout container to allow dropdown menu options to show completely */
+        .portal-container { background: var(--light-bg); border-radius: 12px; padding: 40px 20px; border: 1px solid #e2e8f0; margin-top: 20px; overflow: visible !important; position: relative; }
         .counter-badge { background: var(--primary); color: white; padding: 8px 16px; border-radius: 20px; font-weight: bold; display: inline-block; margin-bottom: 25px; }
         .counter-badge span { color: var(--accent); }
-        .form-group { margin-bottom: 20px; text-align: left; max-width: 500px; margin-left: auto; margin-right: auto; }
+        .form-group { margin-bottom: 20px; text-align: left; max-width: 500px; margin-left: auto; margin-right: auto; position: relative; }
         .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--primary); }
-        .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 16px; background: var(--white); color: var(--text-dark); }
+        .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 16px; background: var(--white); color: var(--text-dark); display: block; }
+        
+        /* Forced dropdown select layout configuration */
+        select option { padding: 10px; background: var(--white); color: var(--text-dark); }
+        
         .btn-wrapper { width: 100%; text-align: center; margin-top: 25px; margin-bottom: 25px; }
         .btn { background: var(--primary); color: white; border: none; padding: 16px 50px; font-size: 16px; font-weight: bold; border-radius: 6px; cursor: pointer; transition: all 0.3s; display: inline-block; text-decoration: none; box-shadow: 0 4px 10px rgba(10,25,49,0.3); }
         .btn:hover { background: var(--accent); color: var(--primary); transform: translateY(-2px); }
@@ -125,10 +131,3 @@
                 </div>
                 <div class="form-group">
                     <label for="memberPhone">Phone Number / WhatsApp</label>
-                    <input type="tel" id="memberPhone" name="Phone Number" placeholder="e.g., 0248578656" required>
-                </div>
-                <div class="form-group">
-                    <label for="memberDept">Ministry Department</label>
-                    <select id="memberDept" name="Department" required>
-                        <option value="">-- Select Department --</option>
-                        <option value="Men Ministry">Men Ministry</option>
