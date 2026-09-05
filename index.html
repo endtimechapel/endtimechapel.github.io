@@ -40,10 +40,11 @@
         .form-group { margin-bottom: 20px; text-align: left; max-width: 500px; margin-left: auto; margin-right: auto; }
         .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--primary); }
         .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 16px; background: var(--white); color: var(--text-dark); }
-        .btn { background: var(--primary); color: white; border: none; padding: 14px 40px; font-size: 16px; font-weight: bold; border-radius: 6px; cursor: pointer; transition: all 0.3s; display: inline-block; text-decoration: none; margin-top: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .btn-wrapper { width: 100%; text-align: center; margin-top: 25px; margin-bottom: 25px; }
+        .btn { background: var(--primary); color: white; border: none; padding: 16px 50px; font-size: 16px; font-weight: bold; border-radius: 6px; cursor: pointer; transition: all 0.3s; display: inline-block; text-decoration: none; box-shadow: 0 4px 10px rgba(10,25,49,0.3); }
         .btn:hover { background: var(--accent); color: var(--primary); transform: translateY(-2px); }
         .btn:disabled { background: #cccccc; color: #666666; cursor: not-allowed; transform: none; }
-        .status-msg { margin-top: 15px; font-weight: bold; font-size: 16px; display: none; }
+        .status-msg { margin-top: 15px; font-weight: bold; font-size: 16px; display: none; text-align: center; }
         .status-success { color: var(--success); }
         .status-error { color: #d32f2f; }
         .directory-box { margin-top: 40px; overflow-x: auto; }
@@ -131,4 +132,3 @@
                     <select id="memberDept" name="Department" required>
                         <option value="">-- Select Department --</option>
                         <option value="Men Ministry">Men Ministry</option>
-                        <option value="Women Ministry">Women Ministry</option>
