@@ -6,494 +6,133 @@
     <title>End Time Chapel - Assemblies of God, Ghana</title>
     <style>
         :root {
-            --primary-blue: #0A1931;
-            --secondary-blue: #15305B;
-            --accent-yellow: #FFD523;
-            --light-bg: #F5F7FA;
-            --white: #FFFFFF;
+            --primary: #0d233a;
+            --accent: #f4c430;
             --text-dark: #333333;
+            --light-bg: #f8f9fa;
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: var(--light-bg);
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-
-        header {
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-        }
-
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo-img {
-            height: 60px;
-            width: auto;
-            object-fit: contain;
-        }
-
-        .brand-text h1 {
-            font-size: 1.5rem;
-            color: var(--primary-blue);
-            font-weight: 700;
-        }
-
-        .brand-text p {
-            font-size: 0.85rem;
-            color: #666;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--primary-blue);
-            font-weight: 600;
-            font-size: 1rem;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #0056b3;
-        }
-
-        .banner-container {
-            width: 100%;
-            background-color: var(--primary-blue);
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-        }
-
-        .banner-img {
-            width: 100%;
-            max-width: 1200px;
-            height: auto;
-            display: block;
-        }
-
-        .section {
-            padding: 60px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            color: var(--primary-blue);
-            margin-bottom: 40px;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background-color: var(--accent-yellow);
-            margin: 10px auto 0;
-            border-radius: 2px;
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; }
+        body { color: var(--text-dark); background-color: #ffffff; line-height: 1.6; }
+        header { background: #ffffff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; }
+        .logo-box img { height: 60px; display: block; }
+        nav a { margin-left: 20px; text-decoration: none; color: var(--primary); font-weight: 600; font-size: 15px; transition: color 0.3s; }
+        nav a:hover { color: var(--accent); }
+        .hero { background: var(--primary); text-align: center; padding: 0; position: relative; overflow: hidden; }
+        .hero img { width: 100%; max-width: 1200px; height: auto; display: block; margin: 0 auto; }
+        .section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; color: var(--primary); margin-bottom: 40px; font-size: 2rem; position: relative; }
+        .section-title::after { content: ''; display: block; width: 60px; height: 4px; background: var(--accent); margin: 10px auto 0; border-radius: 2px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: var(--light-bg); border-radius: 8px; padding: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid var(--primary); transition: transform 0.3s; }
+        .card:hover { transform: translateY(-5s); }
+        .card h3 { color: var(--primary); margin-bottom: 15px; }
+        .history-box { display: flex; flex-direction: column; gap: 30px; align-items: center; }
+        .history-text { font-size: 1.1rem; text-align: center; max-width: 800px; }
+        .family-card { background: var(--light-bg); border-radius: 12px; padding: 30px; text-align: center; width: 100%; max-width: 500px; border: 1px solid #e0e0e0; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .family-card h3 { color: var(--primary); margin-bottom: 5px; font-size: 1.4rem; }
+        .family-subtitle { color: #666; font-style: italic; margin-bottom: 15px; }
+        .portal-container { background: var(--light-bg); border-radius: 12px; padding: 40px 20px; border: 1px solid #e2e8f0; }
+        .counter-badge { background: var(--primary); color: white; padding: 8px 16px; border-radius: 20px; font-weight: bold; display: inline-block; margin-bottom: 25px; }
+        .counter-badge span { color: var(--accent); }
+        .form-group { margin-bottom: 20px; text-align: left; max-width: 500px; margin-left: auto; margin-right: auto; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--primary); }
+        .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 16px; }
+        .btn { background: var(--primary); color: white; border: none; padding: 12px 30px; font-size: 16px; font-weight: bold; border-radius: 6px; cursor: pointer; transition: background 0.3s, color 0.3s; display: inline-block; text-decoration: none; }
+        .btn:hover { background: var(--accent); color: var(--primary); }
+        .directory-box { margin-top: 40px; overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; background: white; margin-top: 15px; min-width: 500px; }
+        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+        th { background-color: var(--primary); color: white; }
+        .social-links { display: flex; justify-content: center; gap: 15px; margin-top: 20px; flex-wrap: wrap; }
+        .social-tag { background: #e2e8f0; padding: 8px 16px; border-radius: 20px; text-decoration: none; color: var(--primary); font-weight: 600; font-size: 14px; transition: all 0.3s; }
+        .social-tag:hover { background: var(--primary); color: white; }
+        footer { background: var(--primary); color: white; text-align: center; padding: 30px 20px; margin-top: 60px; font-size: 14px; }
         @media (max-width: 768px) {
-            .grid-2 {
-                grid-template-columns: 1fr;
-            }
-            .nav-container {
-                flex-direction: column;
-                gap: 15px;
-            }
-        }
-
-        .about-card, .pastor-card {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        .pastor-card h3 {
-            color: var(--secondary-blue);
-            margin-bottom: 10px;
-            font-size: 1.5rem;
-        }
-
-        .family-tag {
-            display: inline-block;
-            background: #E8F0FE;
-            color: #1A73E8;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .social-links {
-            margin-top: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .social-badge {
-            display: inline-flex;
-            align-items: center;
-            background: #f0f2f5;
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: background 0.2s;
-        }
-
-        .social-badge:hover {
-            background: #e4e6eb;
-        }
-
-        .ministries-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .ministry-card {
-            background: var(--white);
-            padding: 25px;
-            text-align: center;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--primary-blue);
-            font-weight: 600;
-            color: var(--primary-blue);
-        }
-
-        .portal-container {
-            background: var(--white);
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-
-        .counter-box {
-            background: var(--primary-blue);
-            color: var(--white);
-            padding: 15px;
-            text-align: center;
-            border-radius: 6px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 25px;
-        }
-
-        .counter-box span {
-            color: var(--accent-yellow);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 6px;
-            font-weight: 600;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 1rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--primary-blue);
-            color: var(--white);
-            padding: 12px 24px;
-            border: none;
-            border-radius: 6px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-            transition: background-color 0.2s;
-        }
-
-        .btn:hover {
-            background-color: var(--secondary-blue);
-        }
-
-        .table-responsive {
-            margin-top: 30px;
-            overflow-x: auto;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-
-        th, td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #f8f9fa;
-            color: var(--primary-blue);
-            font-weight: 600;
-        }
-
-        footer {
-            background-color: var(--primary-blue);
-            color: var(--white);
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 60px;
-        }
-
-        .footer-contact {
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
-
-        .footer-contact a {
-            color: var(--accent-yellow);
-            text-decoration: none;
-            font-weight: bold;
+            .nav-container { flex-direction: column; gap: 15px; }
+            nav a { margin: 0 10px; font-size: 14px; }
+            .section { padding: 40px 15px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Section -->
     <header>
         <div class="nav-container">
-            <div class="logo-area">
-                <!-- Fallback local image placeholder pointing to image_3QIScP.png when deployed locally -->
-                <img src="logo.png" alt="Assemblies of God Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/60?text=AG+Logo'">
-                <div class="brand-text">
-                    <h1>End Time Chapel</h1>
-                    <p>Assemblies of God, Ghana</p>
-                </div>
+            <div class="logo-box">
+                <img src="logo.png" alt="Assemblies of God Logo">
             </div>
             <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#ministries">Ministries</a></li>
-                    <li><a href="#portal">Members Portal</a></li>
-                </ul>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#ministries">Ministries</a>
+                <a href="#portal">Members Portal</a>
             </nav>
         </div>
     </header>
 
-    <!-- Banner Section -->
-    <div class="banner-container" id="home">
-        <!-- Fallback local image placeholder pointing to image_r78QKM.png when deployed locally -->
-        <img src="banner.png" alt="End Time Chapel Banner" class="banner-img" onerror="this.src='https://via.placeholder.com/1200x400/0A1931/FFFFFF?text=END+TIME+CHAPEL+-+FOR+MORE+INFORMATION+CONTACT:+0248578656'">
-    </div>
+    <section id="home" class="hero">
+        <img src="banner.png" alt="End Time Chapel Banner">
+    </section>
 
-    <!-- About & Leadership Section -->
-    <section class="section" id="about">
-        <h2 class="section-title">Our Church & Leadership</h2>
-        <div class="grid-2">
-            <div class="about-card">
-                <h3>Our History</h3>
-                <p style="margin-top: 15px;"><strong>End Time Chapel</strong> is a vibrant branch of the <strong>Assemblies of God, Ghana</strong>, beautifully located in <strong>Berekum, Domfete</strong>.</p>
-                <p style="margin-top: 15px;">The assembly was gracefully founded in the year <strong>2015</strong> by the visionary pioneer, <strong>Rev. Noah Yaw Kumah</strong>, setting a solid foundation of faith, gospel truth, and community transformation.</p>
-            </div>
-            <div class="pastor-card">
-                <h3>Current Lead Pastor</h3>
-                <p style="font-style: italic; color: #555; margin-bottom: 5px;">Rev. Afari Isaac</p>
-                <p>Serving passionately as the son in the Lord to our founder, carrying forward the mantle of ministry with dedication.</p>
-                
-                <div class="family-tag" style="margin-top: 15px;">Family Life</div>
-                <p>Rev. Afari Isaac is happily married to <strong>Mrs. Hellen Mensah</strong>, and their marriage is beautifully blessed with two wonderful children, <strong>Phebe</strong> and <strong>Kingsley</strong>.</p>
-
+    <section id="about" class="section">
+        <h2 class="section-title">Our History & Leadership</h2>
+        <div class="history-box">
+            <p class="history-text">
+                <strong>End Time Chapel</strong> is a vibrant branch of the <strong>Assemblies of God, Ghana</strong>. Located at <strong>Berekum, Domfete</strong>, our church was founded in the year <strong>2015</strong> by the visionary spiritual leader, <strong>Rev. Noah Yaw Kumah</strong>. Over the years, the chapel has stood as a beacon of hope, truth, and transforming grace within the community.
+            </p>
+            <div class="family-card">
+                <h3>Rev. Afari Isaac</h3>
+                <div class="family-subtitle">Current Lead Pastor (Son in the Lord to the Founder)</div>
+                <p>Rev. Afari Isaac leads the congregation with deep biblical insight and devotion. He is happily married to his partner in ministry, <strong>Mrs. Hellen Mensah</strong>. They are beautifully blessed with two wonderful children, <strong>Phebe</strong> and <strong>Kingsley</strong>.</p>
                 <div class="social-links">
-                    <a href="#" class="social-badge">🌐 Facebook: @pastorAi2090</a>
-                    <a href="#" class="social-badge">📺 YouTube: @pastorAi2090</a>
-                    <a href="#" class="social-badge">🎵 TikTok: @pastor_ai2090</a>
-                    <a href="#" class="social-badge">🧵 Threads: @pastor_ai2090</a>
-                    <a href="#" class="social-badge">📸 Instagram: @pastor_ai2090</a>
+                    <a href="https://facebook.com" target="_blank" class="social-tag">FB: @pastorAi2090</a>
+                    <a href="https://youtube.com" target="_blank" class="social-tag">YT: @pastorAi2090</a>
+                    <a href="https://instagram.com" target="_blank" class="social-tag">IG: @pastor_ai2090</a>
+                    <a href="https://tiktok.com" target="_blank" class="social-tag">TikTok: @pastor_ai2090</a>
+                    <a href="https://threads.net" target="_blank" class="social-tag">Threads: @pastor_ai2090</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Departments Section -->
-    <section class="section" id="ministries" style="background-color: #ebedf0; max-width: 100%;">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-            <h2 class="section-title">Our Ministries & Departments</h2>
-            <div class="ministries-grid">
-                <div class="custom-card ministry-card">Men Ministry</div>
-                <div class="custom-card ministry-card">Women Ministry</div>
-                <div class="custom-card ministry-card">Youth Ministry</div>
-                <div class="custom-card ministry-card">Media Ministry</div>
-                <div class="custom-card ministry-card">Cleaning Ministry</div>
-                <div class="custom-card ministry-card">Disciples</div>
+    <section id="ministries" class="section" style="background-color: var(--light-bg); max-width: 100%;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 class="section-title">Our Ministries</h2>
+            <div class="grid-3">
+                <div class="card"><h3>Men Ministry</h3><p>Building strong godly men, husbands, and fathers to anchor families and communities.</p></div>
+                <div class="card"><h3>Women Ministry</h3><p>Empowering godly women through fellowship, prayer, and impactful virtuous living.</p></div>
+                <div class="card"><h3>Youth Ministry</h3><p>Guiding the next generation into an active, deep relationship with Jesus Christ.</p></div>
+                <div class="card"><h3>Media Ministry</h3><p>Spreading the Gospel across digital frameworks and ensuring excellent service streams.</p></div>
+                <div class="card"><h3>Cleaning Ministry</h3><p>Serving behind the scenes to keep God's sanctuary pristine, organized, and welcoming.</p></div>
+                <div class="card"><h3>Disciples</h3><p>Dedicated to personal growth, intensive Bible studies, and sharing the great commission.</p></div>
             </div>
         </div>
     </section>
 
-    <!-- Visitors & Members Database Portal Section -->
-    <section class="section" id="portal">
+    <section id="portal" class="section" style="text-align: center;">
         <h2 class="section-title">Visitors & Members Portal</h2>
         <div class="portal-container">
-            <div class="counter-box">
-                Total Database Capacity Counter: <span id="memberCount">0</span> / 500 Registered Members
-            </div>
+            <div class="counter-badge">Database Registry: <span id="memberCount">0</span> / 500 Members</div>
             
-            <form id="memberForm" onsubmit="registerMember(event)">
-                <div class="grid-2" style="gap: 20px; margin-bottom: 0;">
-                    <div class="form-group">
-                        <label for="memberName">Full Name</label>
-                        <input type="text" id="memberName" class="form-control" placeholder="Enter full name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="memberPhone">Phone / WhatsApp Number</label>
-                        <input type="tel" id="memberPhone" class="form-control" placeholder="Enter contact number" required>
-                    </div>
+            <form id="memberForm" action="https://formspree.io" method="POST">
+                <div class="form-group">
+                    <label for="memberName">Full Name</label>
+                    <input type="text" id="memberName" name="Full Name" placeholder="Enter full name" required>
                 </div>
                 <div class="form-group">
-                    <label for="memberDept">Select Department / Status</label>
-                    <select id="memberDept" class="form-control" required>
-                        <option value="" disabled selected>-- Choose Option --</option>
-                        <option value="First Time Visitor">First Time Visitor</option>
+                    <label for="memberPhone">Phone Number / WhatsApp</label>
+                    <input type="tel" id="memberPhone" name="Phone Number" placeholder="e.g., 0248578656" required>
+                </div>
+                <div class="form-group">
+                    <label for="memberDept">Ministry Department</label>
+                    <select id="memberDept" name="Department" required>
+                        <option value="">-- Select Department --</option>
                         <option value="Men Ministry">Men Ministry</option>
                         <option value="Women Ministry">Women Ministry</option>
                         <option value="Youth Ministry">Youth Ministry</option>
                         <option value="Media Ministry">Media Ministry</option>
                         <option value="Cleaning Ministry">Cleaning Ministry</option>
-                        <option value="Disciples">Disciples</option>
+                        <option value="Disciples">Disciples / General Member</option>
                     </select>
                 </div>
-                <button type="submit" class="btn">Register Profile Details</button>
-            </form>
-
-            <div class="table-responsive">
-                <h3>Registered Members Directory</h3>
-                <table id="directoryTable">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Full Name</th>
-                            <th>Contact Info</th>
-                            <th>Department/Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Saved rows will display here instantly -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer Area -->
-    <footer>
-        <div class="footer-contact">
-            <p>For more information, prayers, or directions:</p>
-            <p style="font-size: 1.4rem; margin-top: 10px;">
-                📞 Call & WhatsApp: <a href="https://wa.me/233248578656" target="_blank">0248578656</a>
-            </p>
-        </div>
-        <p>&copy; 2026 End Time Chapel (Assemblies of God, Ghana) - Berekum, Domfete. All Rights Reserved.</p>
-    </footer>
-
-    <!-- Database Processing Script -->
-    <script>
-        // Array acting as local browser database up to 500 items
-        let membersDb = [];
-
-        function registerMember(event) {
-            event.preventDefault();
-            
-            if (membersDb.length >= 500) {
-                alert("Database limit of 500 profiles reached!");
-                return;
-            }
-
-            const name = document.getElementById('memberName').value.trim();
-            const phone = document.getElementById('memberPhone').value.trim();
-            const dept = document.getElementById('memberDept').value;
-
-            if (name && phone && dept) {
-                // Add to internal list
-                membersDb.push({ name, phone, dept });
-                
-                // Update interface counter
-                document.getElementById('memberCount').innerText = membersDb.length;
-                
-                // Update table display
-                renderTable();
-                
-                // Reset form fields safely
-                document.getElementById('memberForm').reset();
-            }
-        }
-
-        function renderTable() {
-            const tbody = document.querySelector('#directoryTable tbody');
-            tbody.innerHTML = ''; // clear current visual state
-
-            membersDb.forEach((member, index) => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>\${index + 1}</td>
-                    <td><strong>\${member.name}</strong></td>
-                    <td>\${member.phone}</td>
-                    <td>\${member.dept}</td>
-                `;
-                tbody.appendChild(row);
-            });
-        }
-    </script>
-</body>
-</html>
